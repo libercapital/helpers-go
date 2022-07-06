@@ -18,3 +18,11 @@ func Find[T any](s []T, fn func(T) bool) T {
 	}
 	return *new(T)
 }
+
+func Map[T any](s []T, fn func(T) T) []T {
+	rt := make([]T, 0)
+	for _, slice := range s {
+		rt = append(rt, fn(slice))
+	}
+	return rt
+}
