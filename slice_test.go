@@ -250,3 +250,54 @@ func TestSort(t *testing.T) {
 		})
 	}
 }
+
+func TestHasSubslice(t *testing.T) {
+	type args[T any] struct {
+		slice    []T
+		bigslice [][]T
+	}
+	tests := []struct {
+		name string
+		args args[int8]
+		want bool
+	}{
+		{
+			name: "ReturnsTrueCaseA",
+			args: args[int8]{
+				slice:    []int8{2, 1, 3},
+				bigslice: [][]int8{{1, 2}, {3, 4}},
+			},
+			want: true,
+		},
+		{
+			name: "ReturnsFalseCaseB",
+			args: args[int8]{
+				slice:    []int8{4, 1, 5},
+				bigslice: [][]int8{{1, 2}, {3, 4}},
+			},
+			want: false,
+		},
+		{
+			name: "ReturnsTrueCaseC",
+			args: args[int8]{
+				slice:    []int8{1, 3, 1, 4},
+				bigslice: [][]int8{{1, 2, 3, 4, 5}, {1, 1}},
+			},
+			want: true,
+		},
+		{
+			name: "ReturnsFalseCaseD",
+			args: args[int8]{
+				slice:    []int8{4, 4, 1},
+				bigslice: [][]int8{{1, 2, 3}, {1, 1, 4}},
+			},
+			want: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := ContainsSubslice(tt.args.slice, tt.args.bigslice)
+			assert.Equal(t, tt.want, got)
+		})
+	}
+}
