@@ -2,6 +2,7 @@ package bavahelper
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 
 	"github.com/go-playground/assert/v2"
@@ -219,6 +220,48 @@ func TestIncludes(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := Includes(tt.args.s, tt.args.a)
+			assert.Equal(t, tt.want, got)
+		})
+	}
+}
+
+func isEquals(element, target string) bool {
+	return reflect.DeepEqual(element, target)
+}
+
+func TestIncludesCustom(t *testing.T) {
+	type args[T any] struct {
+		s  []T
+		el T
+		fn func(T, T) bool
+	}
+	tests := []struct {
+		name string
+		args args[string]
+		want interface{}
+	}{
+		{
+			name: "test",
+			args: args[string]{
+				s:  []string{"01", "02", "03"},
+				el: "01",
+				fn: isEquals,
+			},
+			want: true,
+		},
+		{
+			name: "test",
+			args: args[string]{
+				s:  []string{"01", "02", "03"},
+				el: "04",
+				fn: isEquals,
+			},
+			want: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := IncludesCustom(tt.args.s, tt.args.el, tt.args.fn)
 			assert.Equal(t, tt.want, got)
 		})
 	}

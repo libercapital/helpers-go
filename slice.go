@@ -101,6 +101,16 @@ func Includes[T any](s []T, el T) bool {
 	return false
 }
 
+func IncludesCustom[T any](s []T, el T, fn func(T, T) bool) bool {
+	for _, item := range s {
+		if fn(item, el) {
+			return true
+		}
+	}
+
+	return false
+}
+
 func Sort[T any](s []T, fn func(T, T) bool) []T {
 	sort.SliceStable(s, func(i, j int) bool {
 		return fn(s[i], s[j])
