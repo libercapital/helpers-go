@@ -25,9 +25,9 @@ func Find[T any](s []T, fn func(T) bool) T {
 }
 
 func Map[T any, T2 any](s []T, fn func(T) T2) []T2 {
-	rt := make([]T2, 0)
-	for _, slice := range s {
-		rt = append(rt, fn(slice))
+	rt := make([]T2, len(s))
+	for i, slice := range s {
+		rt[i] = fn(slice)
 	}
 	return rt
 }
