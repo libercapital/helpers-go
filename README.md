@@ -1,8 +1,6 @@
-# Welcome to bava-helper 👋
+# Welcome to helpers 👋
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000) [![pipeline status](https://gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper/badges/main/pipeline.svg)](https://gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper/-/commits/main) [![coverage report](https://gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper/badges/main/coverage.svg)](https://gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper/-/commits/main)
-
-> Custom methods that can make developers' work easier.
+> Custom methods that can make developer's work easier.
 
 ## Avaliable Methods
 
@@ -15,7 +13,7 @@ package main
 
 import (
   "fmt"
-	bavahelper "gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper.git"
+	helpers "github.com/libercapital/helpers-go"
 )
 
 func findApple(fruit string) bool {
@@ -25,7 +23,7 @@ func findApple(fruit string) bool {
 func main() {
   fruits := []string{"Banana", "Grape", "Apple"}
 
-  fmt.Println(bavahelper.FindIndex(fruits, findApple)) // will print "2"
+  fmt.Println(helpers.FindIndex(fruits, findApple)) // will print "2"
 }
 ```
 
@@ -38,7 +36,7 @@ package main
 
 import (
   "fmt"
-	bavahelper "gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper.git"
+	helpers "github.com/libercapital/helpers-go"
 )
 
 type fruit struct {
@@ -57,7 +55,7 @@ func main() {
 		{name: "Apple", color: "red"},
 	}
 
-  fmt.Println(bavahelper.Find(fruits, findLime)) // will print "{Lime green}"
+  fmt.Println(helpers.Find(fruits, findLime)) // will print "{Lime green}"
 }
 ```
 
@@ -70,7 +68,7 @@ package main
 
 import (
   "fmt"
-	bavahelper "gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper.git"
+	helpers "github.com/libercapital/helpers-go"
 )
 
 func cube(number int) int {
@@ -80,7 +78,7 @@ func cube(number int) int {
 func main() {
   numbers := []int{1, 2, 3, 4, 5}
 
-  fmt.Println(bavahelper.Map(numbers, cube)) // will print "[1 8 27 64 125]"
+  fmt.Println(helpers.Map(numbers, cube)) // will print "[1 8 27 64 125]"
 }
 ```
 
@@ -93,7 +91,7 @@ package main
 
 import (
   "fmt"
-	bavahelper "gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper.git"
+	helpers "github.com/libercapital/helpers-go"
 )
 
 func odd(number int) bool {
@@ -103,7 +101,7 @@ func odd(number int) bool {
 func main() {
   numbers := []int{1, 2, 3, 4, 5}
 
-  fmt.Println(bavahelper.Filter(numbers, odd)) // will print "[1 3 5]"
+  fmt.Println(helpers.Filter(numbers, odd)) // will print "[1 3 5]"
 }
 ```
 

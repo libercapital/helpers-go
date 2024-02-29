@@ -1,4 +1,4 @@
-package bavahelper
+package helpers
 
 import (
 	"math/rand"

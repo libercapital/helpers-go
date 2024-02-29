@@ -1,5 +1,5 @@
-module gitlab.com/bavatech/architecture/software/libs/go-modules/bava-helper.git
+module github.com/libercapital/helpers-go
 
-go 1.18
+go 1.22
 
-require github.com/go-playground/assert/v2 v2.0.1
+require github.com/go-playground/assert/v2 v2.2.0
