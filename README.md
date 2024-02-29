@@ -2,6 +2,18 @@
 
 > Custom methods that can make developer's work easier.
 
+## Install helpers
+
+```go
+go get github.com/libercapital/helpers-go
+```
+
+## Install Holidays
+
+```go
+go get github.com/libercapital/helpers-go/holidays
+```
+
 ## Avaliable Methods
 
 ### FindIndex
