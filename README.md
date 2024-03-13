@@ -14,6 +14,12 @@ go get github.com/libercapital/helpers-go
 go get github.com/libercapital/helpers-go/holidays
 ```
 
+## Install Docgen
+
+```go
+go get github.com/libercapital/helpers-go/docgen
+```
+
 ## Avaliable Methods
 
 ### FindIndex
